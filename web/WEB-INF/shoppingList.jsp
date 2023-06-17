@@ -12,6 +12,21 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>Shopping List </h1>
+        <p>Hello, ${username}</p>
+        
+        <h2>List</h2>
+        <form method="post" action="ShoppingList">
+            
+            Add item: <input type="text" name="addItem" >
+            
+            <%-- add for each loop  usin c:forEach --%>
+            
+            <%-- item user entered --%><input type="radiobutton" value=""><br>
+            <input type="submit" value="Delete"
+            
+        </form>
+            
+            <a href="ShoppingList?logout">Logout</a>
     </body>
 </html>
