@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -13,20 +14,30 @@
     </head>
     <body>
         <h1>Shopping List </h1>
-        <p>Hello, ${username}</p>
-        
+
+        <p>Hello, <span><c:out value="${username}" /></span></p>
+
         <h2>List</h2>
+
         <form method="post" action="ShoppingList">
-            
-            Add item: <input type="text" name="addItem" >
-            
-            <%-- add for each loop  usin c:forEach --%>
-            
-            <%-- item user entered --%><input type="radiobutton" value=""><br>
-            <input type="submit" value="Delete"
-            
-        </form>
-            
-            <a href="ShoppingList?logout">Logout</a>
+
+            Add item: <input type="text"  name="add" ><input type="submit"  name="button" value="Add Item"><br>
+
+            <br>
+
+            <c:forEach var="item"  items="${items}">
+
+                <input type="radio"  name="radioButton" value="${item}">${item}<br>
+
+            </c:forEach>
+
+            <br>
+            <input type="submit"  name="button"  value="Delete">
+
+        </form>  <br>
+
+        <br>
+        <a href="ShoppingList?logout">Logout</a>
+        <br>
     </body>
 </html>
