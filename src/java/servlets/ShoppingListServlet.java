@@ -48,15 +48,8 @@ public class ShoppingListServlet extends HttpServlet {
 
         }
 
-        
         // otherwise get session list set  items as the session list 
-        /*
-        ArrayList<String> items = new ArrayList<>();
-        items.add("apple");
-        items.add("banana");
-        items.add("orange");
-        session.setAttribute("items", items);
-        */
+  
         // set the username to be session username 
         session.setAttribute("username", sessionUsername);
         session.setAttribute("items", sessionItems);
@@ -72,37 +65,22 @@ public class ShoppingListServlet extends HttpServlet {
 
         HttpSession session = request.getSession();
 
-        // empty array list 
-        //ArrayList<String> items = new ArrayList<>();
+        /*
+        TRY AND IMPLEMENT ACTION INSTED OF NAME
+        */
+ 
         // username to be registered 
         String username = request.getParameter("username");
 
         String buttonText = request.getParameter("button");
-            String radioButtonValue = request.getParameter("radioButton");
+        String radioButtonValue = request.getParameter("radioButton");
         ArrayList<String> sessionItems = (ArrayList<String>) session.getAttribute("items");
-        String radioButton = request.getParameter("radioButton");
+
         String addItem = request.getParameter("add");
         //String action = request.getParameter("action");
 
-        String deleteButton = request.getParameter("delete");
-        String addButton = request.getParameter("addbutton");
-
-    
-       // int indexOfItem = sessionItems.indexOf(radioButtonValue);
-
-       /*
-        // if username is null or empty throw error send user back to register page 
-        if (username == null || username.equals("")) {
-
-            request.setAttribute("error", "Enter Name to register ");
-            getServletContext().getRequestDispatcher("/WEB-INF/register.jsp").forward(request, response);
-            return;
-
-        }
-*/
-
         // if add button is clicked and add item input is not empty - add the item to the users list 
-        if ( "Add Item".equalsIgnoreCase(buttonText) ) { // addItem != null &&
+        if ("Add Item".equalsIgnoreCase(buttonText)) { // addItem != null &&
             // add the item they entered to the list 
             sessionItems.add(addItem);
             // set items as the session item again to update the old list 
@@ -113,13 +91,13 @@ public class ShoppingListServlet extends HttpServlet {
             getServletContext().getRequestDispatcher("/WEB-INF/shoppingList.jsp").forward(request, response);
             return;
             // otherwise if the delete bytton is pressed and a check box is selected - delete the checkbox item 
-        } else if ("Delete".equalsIgnoreCase(buttonText) ) { // && radioButton != null
+        } else if ("Delete".equalsIgnoreCase(buttonText)) { // && radioButton != null
 
             // remove the check box value from the list 
             sessionItems.remove(radioButtonValue);
             // update the list 
             session.setAttribute("items", sessionItems);
-             // send everything to shopping list page 
+            // send everything to shopping list page 
             getServletContext().getRequestDispatcher("/WEB-INF/shoppingList.jsp").forward(request, response);
             return;
         }
@@ -131,11 +109,11 @@ public class ShoppingListServlet extends HttpServlet {
             return;
 
         }
-         //  set entered name to be username 
+        //  set entered name to be username 
         session.setAttribute("username", username);
 
         // set items to be the users list
-         session.setAttribute("items", sessionItems);
+        session.setAttribute("items", sessionItems);
         // send them to shopping list 
         getServletContext().getRequestDispatcher("/WEB-INF/shoppingList.jsp").forward(request, response);
         return;
