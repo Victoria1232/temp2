@@ -10,7 +10,7 @@ import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author mfgperez
+ * @author Victo
  */
 public class ShoppingListServlet extends HttpServlet {
 
