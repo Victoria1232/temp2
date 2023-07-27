@@ -1,7 +1,7 @@
 <%-- 
     Document   : shoppingList
     Created on : Jun 17, 2023, 2:46:19 PM
-    Author     : mfgperez
+    Author     : Victo
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
