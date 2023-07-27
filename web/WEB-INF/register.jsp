@@ -1,7 +1,7 @@
 <%-- 
     Document   : register
     Created on : Jun 17, 2023, 2:45:57 PM
-    Author     : mfgperez
+    Author     : Victo
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
